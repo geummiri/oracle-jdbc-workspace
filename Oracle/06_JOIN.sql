@@ -67,7 +67,7 @@
      -- ANSI 표준 구문  
      --해결방법1)테이블명 또는 별칭을 이용해서 하는 방법
      SELECT EMP_ID, EMP_NAME, J.JOB_CODE, JOB_NAME
-     FROM EMPLOYEE
+     FROM EMPLOYEEㄹ
      JOIN JOB J ON(E.JOB_CODE = J.JOB_CODE);
      --해결방법2) JOIN USING 구문 사용하는 방법 (두 컬럼명이 일치할때만)
      SELECT EMP_ID, EMP_NAME, JOB_CODE, JOB_NAME
