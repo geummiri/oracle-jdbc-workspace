@@ -46,15 +46,15 @@
     모든 컬럼을 조회할 경우 컬럼명 대신 * 기호 사용
  */
  
- --EMployee 테이블에 전체사원의 모든 컬럼(*) 정보 조회
+ --EMPLOYEE 테이블에 전체사원의 모든 컬럼(*) 정보 조회
  
  SELECT *
  FROM EMPLOYEE;
  
- --EMPLOTYEE 테이블의 전체 사원들의 사번(EMP_ID), 이름(EMP_NAME), 급여(SALARY)만 조회
+ --EMPLOYEE 테이블의 전체 사원들의 사번(EMP_ID), 이름(EMP_NAME), 급여(SALARY)만 조회
  SELECT EMP_ID, EMP_NAME, SALARY
  FROm EMPLOYEE;
- --대소문자를 가리지 않지만 관례상 대문자ㅗㄹ 작성
+ --대소문자를 가리지 않지만 관례상 대문자로 작성
  select emp_id, emp_name, salary
  from employee;
  
