@@ -117,6 +117,9 @@
     ADDRESS VARCHAR2(50)
  );
  
+ CREATE SEQUENCE SEQ_PERSON;
+ 
+ 
  
  
  

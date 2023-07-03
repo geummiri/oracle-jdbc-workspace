@@ -62,22 +62,61 @@ public class PersonTest {
 		closeAll(conn, st);
 	}
 	
-	public void removePerson(int id) {
+	public void removePerson(int id) throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("removePerson"));
 		
+		st.setInt(1, id);
+		
+		int result = st.executeUpdate();
+		
+		if(result == 1) {
+			System.out.println(result + "명,  삭제!");
+		}
+		
+		closeAll(conn, st);
+	}
+	
+	
+	public void updatePerson(int id, String address) throws SQLException {
+		
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("updatePerson"));
+		st.setString(1, address);
+		st.setInt(2, id);
+		
+		int result = st.executeUpdate();
+		System.out.println(result +  "명 수정!");
+		
+		closeAll(conn, st);
 		
 	}
 	
-	public void searchAllPerson() {
+	public void searchAllPerson() throws SQLException {
 		
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("searchAllPerson"));
 		
+		ResultSet rs = st.executeQuery();
+
+		while(rs.next()) {
+			System.out.println(rs.getString("name") +", " + rs.getString("address"));
+		}
+		
+		closeAll(conn, st);
 	}
 	
-	public void updatePerson(int id, String address) {
+	public void viewPerson(int id) throws SQLException {
+		Connection conn = getConnect();
+		PreparedStatement st = conn.prepareStatement(p.getProperty("viewPerson"));
 		
-	}
-	
-	public void viewPerson(int id) {
+		st.setInt(1, id);
+		ResultSet rs = st.executeQuery();
+		if(rs.next()) {
+			System.out.println(rs.getString("name") + ", "  + rs.getString("address"));
+		}
 		
+		closeAll(conn, st);
 		
 	}
 	
@@ -89,17 +128,17 @@ public class PersonTest {
 			Class.forName(ServerInfo.DRIVER_NAME);
 			System.out.println("Driver Loading!!!!!!!!!!!");
 			
-			pt.addPerson("김강우", "서울");
-			pt.addPerson("고아라", "제주도");
-			pt.addPerson("강태주", "경기도");
+//			pt.addPerson("김강우", "서울");
+//			pt.addPerson("고아라", "제주도");
+//			pt.addPerson("강태주", "경기도");
 
 			pt.searchAllPerson();
 			
-			pt.removePerson(3); //강태주 삭제
-			
-			pt.updatePerson(1, "제주도");
-			
-			pt.viewPerson(1);
+//			pt.removePerson(1); //강태주 삭제
+//			
+//			pt.updatePerson(1, "제주도");
+//			
+//			pt.viewPerson(1);
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
