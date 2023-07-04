@@ -132,13 +132,13 @@ public class PersonTest {
 //			pt.addPerson("고아라", "제주도");
 //			pt.addPerson("강태주", "경기도");
 
-			pt.searchAllPerson();
+//			pt.searchAllPerson();
 			
 //			pt.removePerson(1); //강태주 삭제
 //			
 //			pt.updatePerson(1, "제주도");
 //			
-//			pt.viewPerson(1);
+			pt.viewPerson(1);
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
