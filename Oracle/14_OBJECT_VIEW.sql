@@ -403,3 +403,5 @@ WHERE DEPT_TITLE = '해외영업2부';--에러/읽기전용뷰
 
 --DELETE
 DELETE FROM VW_DEPT WHERE DEPT_TITLE = '해외영업2부';--에러/읽기전용뷰
+
+

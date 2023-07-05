@@ -90,6 +90,8 @@ COMMENT ON COLUMN MEMBER.PHONE IS '전화번호';
 COMMENT ON COLUMN MEMBER.EMAIL IS '이메일';
 COMMENT ON COLUMN MEMBER.MEM_DATE IS '회원가입일';
 
+SELECT * FROM MEMBER;
+
 --테이블에 데이터 추가시키는 구문 (DML : INSERT)
 --INSERT INTO 테이블명 VALUES(값,값,값,...);
 --CREATE .. TABLE 할 때 순서대로 그대로 작성해주면 됨
