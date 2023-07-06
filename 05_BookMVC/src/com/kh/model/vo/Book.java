@@ -25,6 +25,10 @@ public class Book {
 	}
 
 
+	public Book(int no) {
+		this.bkNo = no;
+	}
+
 	public int getBkNo() {
 		return bkNo;
 	}

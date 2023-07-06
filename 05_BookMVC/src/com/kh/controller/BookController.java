@@ -14,70 +14,101 @@ public class BookController {
 	private Member member = new Member();
 
 	public ArrayList<Book> printBookAll() {
-		
+
+		try {
+			return dao.printBookAll();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
-	//insert dao에서 하기
+	
 	public boolean registerBook(Book book) throws SQLException {
-	//dao에서 int로 받아옴	
-//		try {
-//			int result = dao.registerBook(book);
-//			
-//			if(result != 0) {
-//				return true;
-//			};
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return false;
-//	}
-	
-	
-	if(dao.registerBook(book) > 0) {
-		return true;
-	 }	else {
-	
+		try {
+			int result = dao.registerBook(book);
+			
+			if(result != 0) {
+				return true;
+			};
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
-	}
-	//delete dao에서 하기  번호로 값 찾아오기
+	
 	public boolean sellBook(int no) { 
-		
+		try {
+			if(dao.sellBook(no) == 1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
 	public boolean registerMember(Member member) {
 		
+		try {
+			if(dao.registerMember(member) == 1)
+				return true;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
-	}
-	
-	public ArrayList<Rent> printRentBook() {
-		
-		return null;
 	}
 	
 	public Member login(String id, String password) {
 		
-		return null;
+		try {
+			member = dao.login(id, password);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return member;
 	}
 	//회원탈퇴지만 update로 사용하기 n인 경우만 로그인 되고 y면 안댕
 	//y로 update해서 로그인 못하게
 	public boolean deleteMember() {
 		
+		try {
+			if(dao.deleteMember(member.getMemberId(), member.getMemberPwd()) == 1){
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 	//번호로 값 찾아오기
 	public boolean rentBook(int no) {
-		
+	try {
+		if(dao.rentBook(new Rent(new Member(member.getMemberNo()), new Book(no)))==1){
+				return true;
+			}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 		return false;
 	}
 	//이거 어려우니까 안할거임 
 	//본인이 빌린 책만 조회되게끔
 	public boolean deleteRent(int no) {
 		
+		try {
+			if(dao.deleteRent(no) ==1) return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
-	
+	public ArrayList<Rent> printRentBook() {
+		try {
+			return dao.printRentBook(member.getMemberId());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

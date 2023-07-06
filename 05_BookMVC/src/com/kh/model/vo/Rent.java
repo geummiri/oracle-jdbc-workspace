@@ -26,6 +26,11 @@ public class Rent {
 		this.rentDate = rentDate;
 	}
 
+	public Rent(Member member, Book book) {
+		this.member = member;
+		this.book = book;
+	}
+
 	public int getRentNo() {
 		return rentNo;
 	}

@@ -1,5 +1,5 @@
 /*
-    PL/SQL (PROCEDURE LANGUAGE EXTENSION TO SQL)
+    PL/SQL (PROCEDURE LANGUAGE EXTENSION TO SQL) Structured Query Language
     -오라클에서 제공하는 절차적인 프로그래밍 언어
     -SQL 문장 내에서 변수의 정의, 조건처리(IF),
     반복처리(LOOP, FOR, WHILE)등을 지원하여 SQL의 단점을 보완

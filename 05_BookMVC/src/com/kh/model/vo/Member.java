@@ -30,7 +30,13 @@ public class Member {
 	}
 
 	public Member(String id, String password, String name) {
-		
+		this.memberId = id;
+		this.memberPwd = password;
+		this.memberName = name;
+	}
+
+	public Member(int memberNo) {
+		this.memberNo = memberNo;
 	}
 
 	public int getMemberNo() {
