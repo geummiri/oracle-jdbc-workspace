@@ -53,7 +53,7 @@
  
  --EMPLOYEE 테이블의 전체 사원들의 사번(EMP_ID), 이름(EMP_NAME), 급여(SALARY)만 조회
  SELECT EMP_ID, EMP_NAME, SALARY
- FROm EMPLOYEE;
+ FROM EMPLOYEE;
  --대소문자를 가리지 않지만 관례상 대문자로 작성
  select emp_id, emp_name, salary
  from employee;
@@ -100,7 +100,7 @@
  SELECT 
  EMP_NAME AS 직원명,
  SALARY * 12 AS "연봉",
- (SALARY + (BONUS + SALARY) *12) "총 소득(원)"
+ (SALARY + (BONUS * SALARY)) *12 "총 소득(원)"
  FROM EMPLOYEE;
  
  /*
