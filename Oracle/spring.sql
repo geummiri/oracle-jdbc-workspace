@@ -1,21 +1,14 @@
-CREATE TABLE MEMBER(
-    ID VARCHAR2(100) PRIMARY KEY,
-    PASSWORD VARCHAR2(150) NOT NULL,
-    NAME VARCHAR2(50) NOT NULL,
-    ADDRESS VARCHAR2(200) NOT NULL
+DROP TABLE MEMBER;
+
+create table member(
+    id varchar2(50) primary key,
+    password varchar2(100) not null,
+    name varchar2(50) not null,
+    address varchar2(200),
+    auth varchar2(50) default 'ROLE_MEMBER' not null,
+    --활성화 되어있는지 확인하는 역할(1 OR 2)
+    enabled number(1) default 1 not null
 );
+
 SELECT * FROM MEMBER;
-
-INSERT INTO MEMBER(ID, PASSWORD, NAME, ADDRESS) VALUES ('a', 'a', 'a', 'a');
 COMMIT;
-
-CREATE SEQUENCE SEQ_BOARD;
-CREATE TABLE BOARD(
-    NO NUMBER,
-    TITLE VARCHAR2(200) NOT NULL,
-    CONTENT VARCHAR2(2000) NOT NULL,
-    WRITER VARCHAR2(50) NOT NULL,
-    REGDATE DATE DEFAULT SYSDATE
-);
---
-SELECT * FROM BOARD; 
